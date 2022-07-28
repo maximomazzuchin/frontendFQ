@@ -1,0 +1,24 @@
+.navbar{
+    position: fixed;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 60px;
+    padding-left: 50px;
+    font-size: 30px;
+    z-index: 1;
+}
+
+.scrolling{
+  
+    transition: all 0.5s ease;
+}
+
+.navbar-logo{
+    height: 80px;
+    line-height: 80px;
+    color: rgba(255, 255, 255, 0.842);
+    cursor: pointer;
+    
+
+}
