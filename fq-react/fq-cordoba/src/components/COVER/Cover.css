@@ -1,27 +1,24 @@
 .cover-container {
+    margin-top: 15%;
     width: 100%;
     object-fit: contain;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .video{
-    margin-top: 7%;
     object-fit: cover;
     width: 100%;
-    height: 100vh;
-    margin-left: 0%;
+    height: 120vh;
     position: absolute;
     z-index: -1;
-
 }
 
 .cover-container > h1 {
-align-content: center;
-color: rgb(255, 255, 255);
-font-size: 100px;
+    align-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 100px;
 }
 
 .cover-container > p {
