@@ -4,7 +4,7 @@
     width: 100%;
     vertical-align: center;
     align-items: center;
-    background-color: rgba(6, 170, 33, 0.733);
+    /* background-color: rgba(6, 170, 33, 0.733); */
     padding: 30px 0 30px 0;
     margin-top: 600px;
     margin-left: 0px;
@@ -61,8 +61,9 @@
 
 .BrainhubCarousel__arrows{
     background-color: rgb(160, 9, 122);
-    border-radius: 50%;
-    margin: 20px;
+    border-radius: 80%;
+    margin: 10px;
+    width: 50px;
 
 }
 
