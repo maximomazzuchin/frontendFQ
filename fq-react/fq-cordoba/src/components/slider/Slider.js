@@ -12,7 +12,7 @@ export const Slider  = () => {
         <div className='carousel-title'>
             <h2>Formularios y Donaciones</h2>
         </div>
-        <Carousel
+        <Carousel slide={false} fade={false}
             plugins={['arrows']}
             slidesPerPage={4}
             infinite

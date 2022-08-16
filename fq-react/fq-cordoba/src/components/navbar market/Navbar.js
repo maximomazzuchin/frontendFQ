@@ -2,6 +2,7 @@ import { logDOM } from '@testing-library/react';
 import React from 'react'
 import "./Navbar.css"
 import Logo from "../../media/Logo.png";
+import 'boxicons';
 
 export const Navbar = ({isScrolling}) => {
 
@@ -11,7 +12,7 @@ export const Navbar = ({isScrolling}) => {
 
   return (
     
-    <div className="container">
+    <div class="container">
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
           <img className='imagen' src={Logo}/>
@@ -35,18 +36,14 @@ export const Navbar = ({isScrolling}) => {
               </a>
             </li>
             <li class = "nav-item active">
-              <a href='/login' class = "nav-link">
-                Log in
+              <a href='/market' class = "nav-link">
+                Productos
               </a>
             </li> 
             <li class = "nav-item active">
-              <a href='#' class = "nav-link">
-                Donaciones
-              </a>
-            </li>
-            <li class = "nav-item active">
-              <a href='/market' class = "nav-link">
-                Productos
+              <a href='/carrito' class = "nav-link">
+                <box-icon name="cart"></box-icon>
+               <span className="item_total">0</span>
               </a>
             </li>
           </ul>

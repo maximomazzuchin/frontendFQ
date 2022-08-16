@@ -4,7 +4,7 @@ import { Slider } from '../components/slider/Slider';
 import { Navbar } from "../components/navbar/Navbar";
 
 
-function Home(){
+export const Home = () => {
 
   const[scrollHeight, setScrollHeight] = useState(0);
 
@@ -19,9 +19,9 @@ function Home(){
 
     return (
       <div className="Home">
-        <COVER />
-        <Slider/>
         <Navbar/>
+        <COVER/>
+     
       </div>  
     );
   

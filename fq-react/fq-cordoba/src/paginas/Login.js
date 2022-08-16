@@ -1,42 +1,42 @@
-import logo from '../media/Logo.png';
 import './Login.css';
-import mail from "../media/mail.png"
-import pass from "../media/pass.jpeg"
-import user from "../media/user.png"
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Logo from "../media/Logo.png";
 
-function Login() {
+import { Component } from 'react';
+
+
+
+
+function App() {
   return (
-    <div className="main">
-      <div className="sub-main">
-        <div>
-          <div className="imgs">
-            <div className="container-images">
-              <img src={user} alt="IMG" className="img-user"></img>
-            </div>
-          </div>
-          <div>
-            <h1>Login Page</h1>
-            <div>
-              <img src={mail} alt="IMG" className="img-email"></img>
-              <input type="text" placeholder="Username" className="username"></input>
-            </div>
-            <div className="second-input">
-              <img src={pass} alt="IMG" className="img-email"></img>
-              <input type="password" placeholder="Pass" className="username"></input>
-            </div>
-            <div className="login-button">
-              <button>Login</button>
-            </div>
-            <div>
-              <p className="link">
-                <a href="#">¿Olvidaste tu contraseña?</a> O <a href="#">Registrate</a>
-              </p>
-            </div>
-          </div>
+    <Container id="main-container" className="d-grid h-100">
+      <Form id="sign-in-form" className="text-center w-100">
+        <img className='imagen' src={Logo}/>
+        <h1 className="fs-3 fw-normal mb-3">Please sign in</h1>
+        <Form.Group controlId="sign-in-email-address">
+          <Form.Control type="email" size="lg" placeholder="Email Adress" autoComplete="userName" className="position-relative"/>
+        </Form.Group>    
+        <Form.Group controlId="sign-in-password" className="mb-3">
+          <Form.Control type="password" size="lg" placeholder="Password" autoComplete="current-password" className="position-relative"/>
+        </Form.Group>
+        <Form.Group controlId="remember-me" className="d-flex justify-content-center mb-3">
+          <Form.Check label="Remember me">
+          </Form.Check>
+        </Form.Group>
+        <div className="d-grid">
+          <Button variant="primary" size="lg" className="mb-3">Sign in</Button>
         </div>
-      </div>
-    </div>
+        <div className="d-grid">
+          <p>
+            <a href="#">¿Olvidaste tu contraseña?</a> O <a href="/register">Registrate</a>
+          </p>
+        </div>
+        <p className="mt-5 text-muted">&copy; 2022-2023</p>
+      </Form>
+    </Container>
   );
 }
 
-export default Login;
+export default App;

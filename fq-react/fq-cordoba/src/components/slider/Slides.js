@@ -1,7 +1,7 @@
 import React from 'react'
 import "../slider/Slider"
 
-const slidesInfo = [
+export const slidesInfo = [
     {
         src: "https://images.unsplash.com/photo-1656524489031-71c0be0fb205?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
         alt: "Project 1",
