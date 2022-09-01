@@ -21,7 +21,6 @@ export const Home = () => {
       <div className="Home">
         <Navbar/>
         <COVER/>
-     
       </div>  
     );
   

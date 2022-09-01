@@ -5,7 +5,9 @@
  import Login from "./paginas/Login";
  import Home from "./paginas/Home";
  import Mercado from "./paginas/Mercado";
- import Register from "./paginas/Register"
+ import Register from "./paginas/Register";
+ import Contrasenia from "./paginas/Recuperarcontrasenia";
+ import Cuenta from "./paginas/Recuperarcuenta";
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/login" element = {<Login />} />
           <Route path="/market" element = {<Mercado />} />
           <Route path="/register" element = {<Register />} />
+          <Route path="/reccuenta" element = {<Cuenta />} />
+          <Route path="/reccontra" element = {<Contrasenia />} />
         </Routes>
       </Router>
     );

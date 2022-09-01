@@ -3,6 +3,8 @@ import React from 'react'
 import "./Navbar.css"
 import Logo from "../../media/Logo.png";
 
+
+
 export const Navbar = ({isScrolling}) => {
 
     const toTheTop = () => {
@@ -51,10 +53,12 @@ export const Navbar = ({isScrolling}) => {
             </li>
           </ul>
         </div>
-      </div>
+        </div>
     </nav>
-  </div>
+    </div>
   );
 };
+
+
 
 export default Navbar;

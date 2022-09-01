@@ -30,7 +30,7 @@ function App() {
         </div>
         <div className="d-grid">
           <p>
-            <a href="#">¿Olvidaste tu contraseña?</a> O <a href="/register">Registrate</a>
+            <a href="/reccuenta">¿Olvidaste tu contraseña?</a> O <a href="/register">Registrate</a>
           </p>
         </div>
         <p className="mt-5 text-muted">&copy; 2022-2023</p>
