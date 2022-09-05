@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { COVER } from '../components/COVER/Cover';
-import { Slider } from '../components/slider/Slider';
+import  Slider  from '../components/slider/Slider';
 import { Navbar } from "../components/navbar/Navbar";
 
 
@@ -18,9 +18,9 @@ export const Home = () => {
   }, [scrollHeight])
 
     return (
-      <div className="Home">
-        <Navbar/>
+      <div className="Home">   
         <COVER/>
+        <Slider/>
       </div>  
     );
   

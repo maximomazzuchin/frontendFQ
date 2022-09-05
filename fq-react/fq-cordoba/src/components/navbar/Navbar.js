@@ -1,12 +1,17 @@
+import React, { useState } from "react";
 import { logDOM } from '@testing-library/react';
-import React from 'react'
 import "./Navbar.css"
 import Logo from "../../media/Logo.png";
+import { navItems } from "../NavItems";
+import Button from "../Button";
+import Dropdown from "../Dropdown";
+
+import { Link } from "react-router-dom";
 
 
 
 export const Navbar = ({isScrolling}) => {
-
+  const [dropdown, setDropdown] = useState(false);
     const toTheTop = () => {
         window.scrollTo({top: 0, left: 0, behavior:"smooth"}); 
     }
@@ -31,26 +36,26 @@ export const Navbar = ({isScrolling}) => {
         <div class="collapse navbar-collapse"
         id='navbar-nav'>
           <ul class = "navbar-nav">
-            <li class = "nav-item active">
-              <a href='/home' class = "nav-link">
-                Inicio
-              </a>
-            </li>
-            <li class = "nav-item active">
-              <a href='/login' class = "nav-link">
-                Log in
-              </a>
-            </li> 
-            <li class = "nav-item active">
-              <a href='#' class = "nav-link">
-                Donaciones
-              </a>
-            </li>
-            <li class = "nav-item active">
-              <a href='/market' class = "nav-link">
-                Productos
-              </a>
-            </li>
+            {navItems.map((item) => {
+              if (item.title === "Usuario") {
+                return (
+                  <li
+                    key={item.id}
+                    className={item.cName}
+                    onMouseEnter={() => setDropdown(true)}
+                    onMouseLeave={() => setDropdown(false)}
+                  >
+                    <Link to={item.path}>{item.title}</Link>
+                    {dropdown && <Dropdown />}
+                  </li>
+                );
+              }
+              return (
+                <li key={item.id} className={item.cName}>
+                  <Link to={item.path}>{item.title}</Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
         </div>

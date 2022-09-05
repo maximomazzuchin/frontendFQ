@@ -1,27 +1,54 @@
-import React from 'react'
-import Carousel from "@brainhubeu/react-carousel";
+import React from 'react';
 import "@brainhubeu/react-carousel/lib/style.css";
 import slides from '../slider/Slides';
-import "./Slider.css"
+import Carousel from 'react-bootstrap/Carousel';
 
 
-export const Slider  = () => {
+
+function Slider() {
   return (
+      <Carousel className='Carousell'>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://i.pinimg.com/564x/df/b3/e5/dfb3e51c8c23b177e7ddd05c837d9da2.jpg"
+            alt="First slide"
+             
+          />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-50 w-100"
+            src="https://i.pinimg.com/564x/db/04/0f/db040f1d439905c3a1c20ad8a9d1638f.jpg"
+            alt="Second slide"
+          />
 
-    <div className='carousel-container'>
-        <div className='carousel-title'>
-            <h2>Formularios y Donaciones</h2>
-        </div>
-        <Carousel slide={false} fade={false}
-            plugins={['arrows']}
-            slidesPerPage={4}
-            infinite
-            animationSpeed={200}
-            center
-            offset={50}
-            itemWidth={400}
-            slides = {slides}
-        />
-    </div>
-  )
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://i.pinimg.com/564x/27/2c/21/272c211506d70cc3d474996968f89c1f.jpg"
+            alt="Third slide"
+          />
+          
+
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+  );
 }
+
+export default Slider;

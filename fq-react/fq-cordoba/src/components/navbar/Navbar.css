@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
 
+.container-fluid{
+  height: 100%;
+}
+
 .navbar{
     background-color: rgba(0, 0, 0, 0);
     font-size: 18px;
@@ -50,7 +54,7 @@
 }
 
 .navbar .nav_right ul li.nr_li:hover {
-    color: #cefffc;
+    color: #ceffce;
 }
 
 .navbar .nav_right ul li img{
@@ -101,3 +105,55 @@
 .navbar .dd_main.active .dd_menu{
 	display: flex;
 }
+
+.navbar {
+    height: 10vh;
+    background: #1b1919;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-logo {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 10rem;
+  }
+  
+  .nav-items {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: flex-end;
+    margin-right: 2rem;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+  }
+  .nav-item-side{
+    margin-left: 700px;
+    display: flex;
+    align-items: center;
+    height: 10vh;
+  }
+  .nav-item a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    margin-right: 2rem;
+    padding: 6px 16px;
+    border-radius: 5px;
+  }
+  
+  .nav-item a:hover {
+    background: rgba(0, 0, 0, 0.267);
+  }
+  

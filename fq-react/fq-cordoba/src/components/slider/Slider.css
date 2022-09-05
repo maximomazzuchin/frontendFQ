@@ -8,6 +8,10 @@
     /* background-color: rgba(6, 170, 33, 0.733); */
 }
 
+img { 
+    height: 10% !important;
+}
+
 .carousel-title {
     color:white;
     width: 40%;
@@ -15,6 +19,7 @@
     font-size: 30px;
     padding: 0 100px 0 100px;
 }
+
 
 .slide-container {
     height: 80%;

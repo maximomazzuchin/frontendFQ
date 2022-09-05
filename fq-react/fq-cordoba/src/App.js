@@ -8,6 +8,7 @@
  import Register from "./paginas/Register";
  import Contrasenia from "./paginas/Recuperarcontrasenia";
  import Cuenta from "./paginas/Recuperarcuenta";
+ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -17,7 +18,9 @@ function App() {
       <Router>
          <div className="Navbar">
             <Navbar/>
+            
           </div>  
+
         <Routes>
           <Route path="/home" element= {<Home />} />
           <Route path="/login" element = {<Login />} />
@@ -27,18 +30,11 @@ function App() {
           <Route path="/reccontra" element = {<Contrasenia />} />
         </Routes>
       </Router>
+    
     );
   
 
-  
-  /*return (
-    <div className="App">
-      <Navbar isScrolling = {scrollHeight}/>
-      <COVER />
-      <Slider/>
-    </div>
-  );*/
-  
+
   }
 
 export default App;
