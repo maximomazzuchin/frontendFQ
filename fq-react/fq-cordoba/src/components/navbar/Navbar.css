@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
 
+
 .container-fluid{
   height: 100%;
 }
@@ -145,6 +146,7 @@
     height: 10vh;
   }
   .nav-item a {
+    list-style-type: none;
     text-decoration: none;
     color: white;
     font-size: 1.1rem;

@@ -8,6 +8,7 @@
  import Register from "./paginas/Register";
  import Contrasenia from "./paginas/Recuperarcontrasenia";
  import Cuenta from "./paginas/Recuperarcuenta";
+ import Datauser from "./paginas/Datosusuario"
  import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/register" element = {<Register />} />
           <Route path="/reccuenta" element = {<Cuenta />} />
           <Route path="/reccontra" element = {<Contrasenia />} />
+          <Route path="/datauser" element= {<Datauser />} />
         </Routes>
       </Router>
     

@@ -28,8 +28,8 @@ export const navItems = [
 export const serviceDropdown = [
   {
     id: 1,
-    title: "Marketing",
-    path: "./marketing",
+    title: "Información de Usuario",
+    path: "/datauser",
     cName: "submenu-item",
   },
   {
