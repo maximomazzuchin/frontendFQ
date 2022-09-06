@@ -1,0 +1,29 @@
+.cover-container {
+    margin-top: 16%;
+    width: 100%;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video{
+    object-fit: cover;
+    width: 100%;
+    height: 120vh;
+    position: absolute;
+    z-index: -1;
+}
+
+.cover-container > h1 {
+    align-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 100px;
+}
+
+.cover-container > p {
+    margin-top: 8px;
+    color:rgb(252, 0, 210);
+    font-size: 32px;  
+}
+

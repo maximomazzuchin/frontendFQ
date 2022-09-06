@@ -1,0 +1,15 @@
+.navbar{
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 18px;
+    display: flex;
+    z-index: 1;
+}
+
+.scrolling{
+    transition: all 0.5s ease;
+}
+
+.imagen{
+    height: 70px;
+    color: rgba(255, 0, 0, 0.842);
+}

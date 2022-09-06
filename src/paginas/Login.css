@@ -1,0 +1,24 @@
+body{
+  display: grid;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+#main-container{
+  place-items: center center;
+  background-color: rgb(255, 255, 255) !important;
+
+}
+
+#sign-in-form{
+  max-width: 330px;
+}
+
+.form-control:focus{
+  z-index: 5;
+}
+
+.fq-logo{
+  width: 72px;
+  height: 72px;
+}
