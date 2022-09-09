@@ -7,4 +7,5 @@ These are the steps to be followed when trying to execute this code:
 1- Clone the repository(git clone "projecturl").
 2- cd "foldername".
 3- Download node_modules(npm install).
+4- Download React-Bootstrap(npm install react-bootstrap bootstrap).
 4- initialize the project(npm start).
