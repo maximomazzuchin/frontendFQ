@@ -1,24 +1,43 @@
-body{
-  display: grid;
-  background-color: #ffffff;
-  min-height: 100vh;
+.Login{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 100vh;
 }
 
-#main-container{
-  place-items: center center;
-  background-color: rgb(255, 255, 255) !important;
-
+.Auth-form {
+  padding: 20px;
+  text-align: center;
+  align-self: center;
+  width: 600px;
+  height: auto;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
 }
 
-#sign-in-form{
-  max-width: 330px;
+.Auth-form-content {
+  padding-left: 12%;
+  padding-right: 12%;
 }
 
-.form-control:focus{
-  z-index: 5;
+.Auth-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
 }
 
-.fq-logo{
-  width: 72px;
-  height: 72px;
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+}
+
+.forgot-password{
+  text-align: center;
 }

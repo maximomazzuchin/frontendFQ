@@ -1,0 +1,24 @@
+.navbar {
+    padding: 15px 4% !important;
+}
+
+.nav-title {
+    color: var(--main-text-color);
+    font-size: 30px !important;
+    font-weight: 900;
+}
+
+.nav-link {
+    color: var(--main-text-color) !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-left: 30px;
+}
+
+#two{
+    border: 1px solid black;
+}
+
+.nav-link:hover {
+    color: var(--main-color) !important;
+}

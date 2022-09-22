@@ -16,7 +16,7 @@ export const Navbar = ({isScrolling}) => {
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
           <img className='imagen' src={Logo}/>
-          <a class="navbar-brand" href="#">FQ Córdoba</a>
+          <a class="navbar-brand">FQ Córdoba</a>
         <button 
           type="button"
           data-bs-toggle="collapse"

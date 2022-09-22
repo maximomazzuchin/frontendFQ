@@ -1,29 +1,43 @@
-.cover-container {
-    margin-top: 16%;
+.cover-container{
     width: 100%;
-    object-fit: contain;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .video{
-    object-fit: cover;
     width: 100%;
-    height: 120vh;
+    height: 200vh;
     position: absolute;
     z-index: -1;
+    object-fit: cover;
 }
 
-.cover-container > h1 {
+.covercontent{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-content: center;
-    color: rgb(255, 255, 255);
+}
+
+.covertitle{
+    align-self: center;
+    color: black;
     font-size: 100px;
 }
 
-.cover-container > p {
-    margin-top: 8px;
-    color:rgb(252, 0, 210);
-    font-size: 32px;  
+@media (max-width: 768px) {
+    .covertitle{
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .covertitle{
+        font-size: 40px;
+    }
 }
 
