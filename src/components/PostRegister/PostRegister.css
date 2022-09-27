@@ -1,4 +1,6 @@
 .mainn-divv{
+    align-self: center;
+    position: relative;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -7,7 +9,7 @@
 
 .form{
     align-self: center;
-    height: 600px;
+    height: 1000px;
     width: 500px;
     background: #FFFFFF;
     box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.25);

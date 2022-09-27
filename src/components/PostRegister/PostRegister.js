@@ -1,50 +1,66 @@
-/*import React, {Component, useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useState, useEffect} from 'react';
 import './PostRegister.css';
-import coverVideo from '../../media/coverVideo.mp4';*/
+import axios from 'axios';
 
-/*
-class PostRegister extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            first_name: '',
-            last_name: '',
-            
-        }
-    }
 
-    changeHandler = (e) => {2
-        this.setState({[e.target.name]: e.target.value })
-    }
-    
-    submitHandler = e => {
-        e.preventDefault()
-        console.log(this.state)
-        axios.post('', this.state)
-            .then(response => {
-                console.log(response.data)
-            }).catch(err => {
-                console.log(err)
-            })
-    }
+class VisitaGuiada{
+  id = 0;
+  nombre = '';
 
-    render() {
-        const { first_name, last_name } = this.state
-        return (
-            <div className="mainn-divv">
-                <form className="form" onSubmit={this.submitHandler}>
-                    <label className="label">Registro</label>
-                    <input className="input" type="text" name="first_name" placeholder="Nombre" value={first_name} onChange={this.changeHandler}></input>
-                    <input className="input" type="text" name="last_name" placeholder="Apellido" value={last_name} onChange={this.changeHandler}></input>
-                    <input className="input" type="email" name="mail" placeholder="Email" onChange={this.changeHandler}></input>
-                    <button type="submit" href="#" className="btn-enviar">Enviar</button>
-                </form>
+  constructor(id, nombre){
+    this.id = id;
+    this.nombre = nombre;
+  }
+}
+
+function PostRegister() {
+
+  const [visitas, setVisitas] = useState([]);
+
+  useEffect(() => {
+    axios.get('')
+    .then(res => {    
+      console.log(res.data)
+      const visitasMapped = res.data.map(x => {
+        let visita = new VisitaGuiada(x.id, x.name);
+        return visita;
+      });
+
+      setVisitas(visitasMapped);
+    }).catch(err => {
+      console.log(err)
+    })
+  }, [])
+
+
+  return (
+    <div className="VisitasGuiadas">
+        <h1 className="main-title">Visitas</h1>
+        <div className="main-div">
+          {
+            visitas.map(visita => (
+              <div key={visita.id}>
+                <img src={visita.imageurl} className="img-div"></img>
+                <div className="about-div">
+                  <h3 className="h">Nombre de la Visita: {visita.tema}</h3>
+                <div className="circle-div">
+                  <div className="circle"></div>
+                  <h6 className="first-h">Encargado: {visita.encargadofn} {visita.encargadoln}</h6>
+                </div>
+                <h6 className="second-h">Idioma de la visita: {visita.idiomas}</h6>
+                <h6 className="third-h">Fecha y horario: {visita.fecha}</h6>
+                <h6 className="fourth-h">Espacios disponibles: {visita.cantvisitas}</h6>
+                <div className="buttons-div">
+                  <a className="btn-ins" href="/Inscripcion?visita_id={visita.id}">Inscribirme</a>
+                  <a className="btn-rec" href="#">Recorrido</a>
+                </div>
+              </div>
             </div>
-        )
-    }
-
+            ))
+          }
+        </div>
+    </div>
+  )
 }
 
 export default PostRegister
-*/
