@@ -1,66 +1,52 @@
-import React, {useState, useEffect} from 'react';
-import './PostRegister.css';
+import React, {Component} from 'react';
 import axios from 'axios';
+import './PostRegister.css';
 
 
-class VisitaGuiada{
-  id = 0;
-  nombre = '';
+class PostRegister extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            first_name: '',
+            last_name: '',
+            email: '',
+            password1: '',
+            password2: ''
+        }
+    }
 
-  constructor(id, nombre){
-    this.id = id;
-    this.nombre = nombre;
-  }
-}
+    changeHandler = e => {
+        this.setState({[e.target.name]: e.target.value })
+    }
+    
+    submitHandler = e => {
+        e.preventDefault()
+        console.log(this.state)
+        axios.post('', this.state)
+            .then(response => {
+                console.log(response.data)
+            }).catch(err => {
+                console.log(err)
+            })
+    }
 
-function PostRegister() {
-
-  const [visitas, setVisitas] = useState([]);
-
-  useEffect(() => {
-    axios.get('')
-    .then(res => {    
-      console.log(res.data)
-      const visitasMapped = res.data.map(x => {
-        let visita = new VisitaGuiada(x.id, x.name);
-        return visita;
-      });
-
-      setVisitas(visitasMapped);
-    }).catch(err => {
-      console.log(err)
-    })
-  }, [])
-
-
-  return (
-    <div className="VisitasGuiadas">
-        <h1 className="main-title">Visitas</h1>
-        <div className="main-div">
-          {
-            visitas.map(visita => (
-              <div key={visita.id}>
-                <img src={visita.imageurl} className="img-div"></img>
-                <div className="about-div">
-                  <h3 className="h">Nombre de la Visita: {visita.tema}</h3>
-                <div className="circle-div">
-                  <div className="circle"></div>
-                  <h6 className="first-h">Encargado: {visita.encargadofn} {visita.encargadoln}</h6>
-                </div>
-                <h6 className="second-h">Idioma de la visita: {visita.idiomas}</h6>
-                <h6 className="third-h">Fecha y horario: {visita.fecha}</h6>
-                <h6 className="fourth-h">Espacios disponibles: {visita.cantvisitas}</h6>
-                <div className="buttons-div">
-                  <a className="btn-ins" href="/Inscripcion?visita_id={visita.id}">Inscribirme</a>
-                  <a className="btn-rec" href="#">Recorrido</a>
-                </div>
-              </div>
+    render() {
+        const { first_name, last_name, email, password1, password2 } = this.state
+        return (
+            <div className="mainnn-divv">
+                <form className="formm" onSubmit={this.submitHandler}>
+                    <label className="labeel">Registro</label>
+                    <input className="inpuut" type="text" name="first_name" placeholder="Nombre" value={first_name} onChange={this.changeHandler} required></input>
+                    <input className="inpuut" type="text" name="last_name" placeholder="Apellido" value={last_name} onChange={this.changeHandler} required></input>
+                    <input className="inpuut" type="email" name="email" placeholder="Email" value={email} onChange={this.changeHandler} required></input>
+                    <input className="inpuut" type="password" name="password1" placeholder="Contraseña" value={password1} onChange={this.changeHandler} required></input>
+                    <input className="inpuut" type="password" name="password2" placeholder="Confirmar Contraseña" value={password2} onChange={this.changeHandler} required></input>
+                    <button type="submit" href="#" className="btn-enviaar">Guardar</button>
+                </form>
             </div>
-            ))
-          }
-        </div>
-    </div>
-  )
+        )
+    }
+
 }
 
 export default PostRegister

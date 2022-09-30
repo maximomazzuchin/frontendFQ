@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import Navbar from "./components/NavBar/Navbar";
+import NavBar from "./components/NavBar/NavBar";
 import Login from "./paginas/Login";
 import Home from "./paginas/Home";
 import Mercado from "./paginas/Mercado";
@@ -16,7 +16,7 @@ function App() {
   
   return (
     <>
-      <Navbar />
+      <NavBar />
       <BrowserRouter>
         <Routes>
           <Route path="/" element= {<Home />} />

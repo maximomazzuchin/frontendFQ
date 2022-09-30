@@ -1,17 +1,14 @@
-.mainnn-divv{
+.mainn-divv{
     align-self: center;
     display: flex;
     justify-content: center;
     align-content: center;
-    margin-top: 50px;
-    width: 600px;
-    height: 80%;
 }
 
-.formm{
+.form{
     align-self: center;
-    height: 100%;
-    width: 100%;
+    height: 500px !important;
+    width: 500px;
     background: #FFFFFF;
     box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.25);
     border-radius: 40px;
@@ -21,7 +18,7 @@
     align-content: center;
 }
 
-.labeel{
+.label{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
@@ -31,7 +28,7 @@
     align-self: center;
 }
 
-.inpuut{
+.input{
     font-family: 'Montserrat';
     font-size: 17px;
     width: 90%;
@@ -42,7 +39,7 @@
     align-self: center;
 }
 
-.btn-enviaar{
+.btn-enviar{
     margin-top: 20px;
     align-self: center;
     text-align: center;

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import { Navbar } from "../navbar market/Navbar";
 import "./Market.css";
 
 
@@ -19,7 +18,6 @@ export const Market = () => {
   
       return (
           <div className="container">
-            <Navbar/>  
           </div> 
       );
     }
