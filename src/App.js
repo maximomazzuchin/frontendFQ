@@ -6,9 +6,9 @@ import Home from "./paginas/Home";
 import Mercado from "./paginas/Mercado";
 import Register from "./paginas/Register";
 import Contrasenia from "./paginas/Recuperarcontrasenia";
-import Datauser from "./paginas/Datosusuario"
-import "bootstrap/dist/css/bootstrap.min.css"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Datauser from "./paginas/Datosusuario";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 function App() {
