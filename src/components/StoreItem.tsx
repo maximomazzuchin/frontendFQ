@@ -1,15 +1,12 @@
 import { Button, Card } from "react-bootstrap"
 import { useShoppingCart } from "../context/ShoppingCartContext"
 import { formatCurrency } from "../utilities/formatCurrency"
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { render } from 'react-dom';
+import { Product } from "../components/Product"
 
-type StoreItemProps = {
-  id: number
-  name: string
-  price: number
-  imgUrl: string
-}
-
-export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
+export function StoreItem({ id, name, price}: Product) {
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -18,11 +15,12 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
   } = useShoppingCart()
   const quantity = getItemQuantity(id)
 
+ console.log(id, name, price)
+
   return (
     <Card className="h-100">
       <Card.Img
         variant="top"
-        src={imgUrl}
         height="200px"
         style={{ objectFit: "cover" }}
       />
