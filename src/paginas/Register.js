@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import './Register.css';
 import PostRegister from '../components/PostRegister/PostRegister';
 import coverVideo from '../media/coverVideo.mp4';

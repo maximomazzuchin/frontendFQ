@@ -58,24 +58,3 @@
     color: #FFFFFF;
     text-decoration: none;
 }
-
-.ConfirmRegistration{
-    height: 500px;
-    width: 500px;
-    background-color: #fff;
-    display: none;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-.cr-title{
-    align-self: center;
-    text-align: center;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    color: black;
-}

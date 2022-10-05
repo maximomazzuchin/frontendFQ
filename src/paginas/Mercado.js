@@ -1,12 +1,10 @@
 import React from "react";
-import { Market } from "../components/MARKET/Market";
-import  Slider  from '../components/slider/Slider';
 
 function Mercado(){
 
     return (
       <div className="Mercado">
-        <Slider/>
+        <h1>Hola Mundo</h1>
       </div>  
     );
   

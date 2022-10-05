@@ -18,10 +18,11 @@ class PostLogin extends Component {
     
     submitHandler = e => {
         e.preventDefault()
-        axios.post('', this.state)
+        console.log(this.state)
+        axios.post('http://127.0.0.1:8000/dj-rest-auth/login/', this.state)
             .then(response => {
                 console.log(response.data)
-                window.location.replace("/");
+                //window.location.replace("/");
             }).catch(err => {
                 console.log(err)
                 alert("Contraseña o Mail invalidos, porfavor intente nuevamente.")

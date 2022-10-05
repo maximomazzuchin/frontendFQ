@@ -9,7 +9,7 @@ export const COVER = () => {
       <video className='video' src={coverVideo} autoPlay loop muted/>
       <div className='cover-container'>
         <div className='covercontent'>
-          <h1 className='covertitle'>FQ Córdoba</h1>
+          <h1 className='covertitle'>Córdoba FQ</h1>
         </div>
       </div>
     </>
