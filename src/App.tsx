@@ -1,10 +1,13 @@
+import React from "react"
 import { Routes, Route } from "react-router-dom"
 import { Container } from "react-bootstrap"
-import { Home } from "./pages/Home"
 import { Store } from "./pages/Store"
 import { About } from "./pages/About"
-import { Navbar }  from "./components/Navbar"
 import { ShoppingCartProvider } from "./context/ShoppingCartContext"
+import Home from "./pages/Home"
+import Navbar from "./components/NavBar/NavBar"
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/market" element={<Store />} />
           <Route path="/about" element={<About />} />
+          <Route path="/Login" element = {<Login />} />
+          <Route path="/Register" element = {<Register />} />
         </Routes>
       </Container>
     </ShoppingCartProvider>

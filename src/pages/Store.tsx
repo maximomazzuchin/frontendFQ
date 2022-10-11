@@ -1,7 +1,9 @@
 import { Col, Row } from "react-bootstrap"
 import { StoreItem } from "../components/StoreItem"
+import storeItems from "../data/items.json"
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { render } from 'react-dom';
 import {Product} from "../components/Product"
 
 export function Store() {
@@ -12,24 +14,23 @@ export function Store() {
   const [quote, setQuote] = useState<Product[]>([])
 
   
-  useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/products/")  
-      .then(res=>{
-        res.data.map((p: { id: number; name: string; description: string; price: number; }) => {
-          let product = new Product();
-          product.id = p.id;
-          product.name = p.name;
-          product.price = p.price
-          quote.push(product)
-          // setQuote()
-        })
-      
-        // setQuote(mappedProducts)
-      }).catch(err=>{
-        console.log(err);
-        
+
+  axios.get("http://127.0.0.1:8000/api/products/")  
+    .then(res=>{
+      res.data.map((p: { id: number; name: string; description: string; price: number; }) => {
+        let product = new Product();
+        product.id = p.id;
+        product.name = p.name;
+        product.price = p.price
+        quote.push(product)
+        // setQuote()
       })
-  }, [])
+     
+      // setQuote(mappedProducts)
+    }).catch(err=>{
+      console.log(err);
+      
+    })
   
   return (
     <>

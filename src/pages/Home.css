@@ -1,14 +1,35 @@
-.Home {
-    width: 100%;
-    height: 100vh;
-}
-
-video {
-    width: 175vh;
-    height: 80vh;
-    object-fit: cover;
-}
-
-.Titulo{
+.main-div{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-content: center;
+    width: 100%;
+    height: 800px;
+}
+
+.aboutus-div{
+    align-self: center;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgslider-div{
+    align-self: center;
+}
+
+.aboutustitle{
+    align-items: center;
+    font-size: 50px;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+    color: black;
+}
+
+.aboutusp{
+    font-size: 25px;
+    color: black;
 }
