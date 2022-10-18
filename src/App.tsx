@@ -5,14 +5,14 @@ import { Store } from "./pages/Store"
 import { About } from "./pages/About"
 import { ShoppingCartProvider } from "./context/ShoppingCartContext"
 import Home from "./pages/Home"
-import Navbar from "./components/NavBar/NavBar"
+import {Navbar} from "./components/Navbartsx"
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 
 function App() {
   return (
     <ShoppingCartProvider>
-      <Navbar />
+      <Navbar/>
       <Container className="mb-4">
         <Routes>
           <Route path="/" element={<Home />} />

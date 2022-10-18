@@ -38,6 +38,7 @@ class PostLogin extends Component {
                     <input className="input" type="email" name="email" placeholder="Email" value={email} onChange={this.changeHandler} required></input>
                     <input className="input" type="password" name="password" placeholder="Contraseña" value={password} onChange={this.changeHandler} required></input>
                     <button type="submit" href="#" className="btn-enviar">Entrar</button>
+                    <a href="/register" class="btn btn-link" role="button">Registrarse</a>
                 </form>
             </div>
         )

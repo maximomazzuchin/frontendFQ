@@ -31,6 +31,7 @@ export const Home = () => {
 
   return (
     <div className="Home">
+      <video className='videeo' src={coverVideo} autoPlay loop muted/>
       <COVER/>
       <div className="main-div">
         <div className="aboutus-div">
