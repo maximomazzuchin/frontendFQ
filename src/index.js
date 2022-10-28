@@ -12,6 +12,7 @@ import logout from './components/logout';
 import CreatePatient from './components/patient';
 import ForgotPassword from './components/forgotpassword';
 import Profile from './components/profile';
+import PrivateRoute from './utils/PrivateRoute';
 
 const routing = (
 	<Router>

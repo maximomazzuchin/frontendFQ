@@ -59,13 +59,10 @@ export default function CreatePatient() {
 
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/healthinsurances/', {
-                headers: {
-                    Authorization: localStorage.getItem('access_token')
-                        ? 'JWT ' + localStorage.getItem('access_token')
-                        : null,
-                    'Content-Type': 'application/json',
-                    accept: 'application/json',
-                }
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${localStorage.getItem('access_token')}`
+			},
             })
             .then(res => {
                 console.log(res.data)
