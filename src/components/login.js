@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axiosInstance from '../axios';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import './login.css'
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
@@ -52,12 +53,12 @@ export default function SignIn() {
 		});
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(formData);
 
-		axiosInstance
-			.post('login/', {
+		await axiosInstance
+			.post('dj-rest-auth/login/', {
 				email: formData.email,
 				password: formData.password,
 			})
@@ -68,7 +69,31 @@ export default function SignIn() {
 				localStorage.setItem('user_id', res.data.user.pk);
 				axiosInstance.defaults.headers['Authorization'] =
 					'JWT ' + localStorage.getItem('access_token');
-				history.push('/createpatient');
+				console.log(localStorage.getItem('access_token', res.data.access_token));
+				console.log(localStorage.getItem('refresh_token', res.data.access_token));
+				//hacer .get aca
+				//then y catch
+				//en el then evaluar si el valor que viene en patient id es null o hay un id
+				//si hay id mandar al home, si no hay, mandar al create patient
+				/*axios.get('http://127.0.0.1:8000/api/users/testfull/', {
+					headers: {
+						Authorization: localStorage.getItem('access_token')
+							? 'JWT ' + localStorage.getItem('access_token')
+							: null,
+						'Content-Type': 'application/json',
+						accept: 'application/json',
+					} 
+				}).then(res => {
+					console.log(res.data)*/
+					//if (res.data.patient ==) null){
+					//	history.push('/createpatient');
+					//}else
+					//	history.push('/');
+				/*}).catch(err => {
+					console.log(err)
+				});*/
+				//history.push('/createpatient');
+				//history.push('/');
 				//console.log(res);
 				//console.log(res.data);
 			});

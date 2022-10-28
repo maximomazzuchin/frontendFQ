@@ -66,10 +66,13 @@ export default function SignUp() {
 		if(document.getElementById('password1').value !== document.getElementById('password2').value){
             alert("Las contraseñas no son iguales");
             console.log(this.state)}
+		else if(document.getElementById('fm').value === "" || document.getElementById('lm').value === "" || document.getElementById('rmail').value === ""){
+			alert("Faltan datos");
+		}
 		else{
 			//document.getElementById('mf').style.display = 'none';
 			axiosInstance
-			.post('registration/', {
+			.post('dj-rest-auth/registration/', {
 				first_name: formData.first_name,
 				last_name: formData.last_name,
 				email: formData.email,
@@ -104,10 +107,10 @@ export default function SignUp() {
 								variant="outlined"
 								required
 								fullWidth
-								id="first_name"
 								label="First_Name"
 								type="text"
 								name="first_name"
+								id="fm"
 								autoComplete="first_name"
 								onChange={handleChange}
 							/>
@@ -117,10 +120,10 @@ export default function SignUp() {
 								variant="outlined"
 								required
 								fullWidth
-								id="last_name"
 								label="Last_Name"
 								type="text"
 								name="last_name"
+								id="lm"
 								autoComplete="last_name"
 								onChange={handleChange}
 							/>
@@ -130,10 +133,10 @@ export default function SignUp() {
 								variant="outlined"
 								required
 								fullWidth
-								id="email"
 								label="Email Address"
 								type="email"
 								name="email"
+								id="rmail"
 								autoComplete="email"
 								onChange={handleChange}
 							/>
