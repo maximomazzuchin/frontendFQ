@@ -69,8 +69,6 @@ export default function SignIn() {
 				localStorage.setItem('user_id', res.data.user.pk);
 				axiosInstance.defaults.headers['Authorization'] =
 					'JWT ' + localStorage.getItem('access_token');
-				console.log(localStorage.getItem('access_token', res.data.access_token));
-				console.log(localStorage.getItem('refresh_token', res.data.access_token));
 				//hacer .get aca
 				//then y catch
 				//en el then evaluar si el valor que viene en patient id es null o hay un id
@@ -92,7 +90,7 @@ export default function SignIn() {
 				/*}).catch(err => {
 					console.log(err)
 				});*/
-				//history.push('/createpatient');
+				history.push('/createpatient');
 				//history.push('/');
 				//console.log(res);
 				//console.log(res.data);

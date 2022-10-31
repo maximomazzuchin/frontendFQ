@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
 	toolbarTitle: {
 		flexGrow: 1,
 	},
+	markeet: {
+		spacing: [0, 2, 3, 5, 8],
+	},
 }));
 
 function Header() {
@@ -45,8 +48,9 @@ function Header() {
 							underline="none"
 							color="textPrimary"
 						>
-							Home
+							Home  |  
 						</Link>
+						<Link className={classes.markeet} color="inherit" href="http://localhost:3001/market">  Market</Link>
 					</Typography>
 					<nav>
 						<Link

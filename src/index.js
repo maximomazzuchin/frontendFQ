@@ -19,7 +19,7 @@ const routing = (
 		<React.StrictMode>
 			<Header />
 			<Switch>
-				<Route exact path="/" component={App} />
+				<PrivateRoute exact path="/" component={App} />
 				<Route path="/register" component={register} />
 				<Route path="/login" component={login} />
 				<Route path="/logout" component={logout} />
