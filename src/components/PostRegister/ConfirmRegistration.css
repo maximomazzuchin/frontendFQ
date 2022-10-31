@@ -1,0 +1,37 @@
+.ConfirmRegistration{
+    height: 500px;
+    width: 100%;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    text-align: center;
+    border-radius: 20px;
+    align-self: center;
+}
+
+.img-mail{
+    align-self: center;
+    width: 300px;
+    height: 200px;
+}
+
+.cr-main-title{
+    align-self: center;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    color: black;
+}
+
+.cr-title{
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    color: black;
+}
