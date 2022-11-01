@@ -1,5 +1,4 @@
 import React from 'react';
-import './header.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-function Header() {
+function ForgotPasswordHeader() {
 	const classes = useStyles();
 	return (
 		<React.Fragment>
@@ -74,20 +73,10 @@ function Header() {
 					>
 						Login
 					</Button>
-					<Button
-						href="#"
-						color="primary"
-						variant="outlined"
-						className={classes.link}
-						component={NavLink}
-						to="/logout"
-					>
-						Logout
-					</Button>
 				</Toolbar>
 			</AppBar>
 		</React.Fragment>
 	);
 }
 
-export default Header;
+export default ForgotPasswordHeader;

@@ -12,7 +12,8 @@ export default function LogOut() {
 		localStorage.removeItem('access_token');
 		localStorage.removeItem('patient_id');
 		localStorage.removeItem('user_id');
-		axiosInstance.defaults.headers['Authorization'] = null;
+		localStorage.removeItem('refresh_token');
+		//axiosInstance.defaults.headers['Authorization'] = null;
 		history.push('/login');
 	});
 	return <div>Logout</div>;

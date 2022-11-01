@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../axios';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import PatientHeader from './patientheader';
 import './patient.css'
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
@@ -58,7 +58,7 @@ export default function CreatePatient() {
     const [selectedHealthInsurance, setSelectedHealthInsurance] = useState([]);
 
     useEffect(() => {
-        axiosInstance.get('http://127.0.0.1:8000/api/healthinsurances/', {
+        axiosInstance.get('api/healthinsurances/', {
 			headers: {
 				"Content-Type": "application/json",
 				"Authorization": `Bearer ${localStorage.getItem('access_token')}`
@@ -108,36 +108,48 @@ export default function CreatePatient() {
 		console.log(formData);
 
 		axiosInstance
-			.post('http://127.0.0.1:8000/api/patients/patients/', {
+			.post('api/patients/patients/', {
                 document_number: formData.document_number,
                 birth_date: formData.birth_date,
                 province: formData.province,
                 city: formData.city,
 				user: localStorage.getItem('user_id'),
-			})
+			}, {headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${localStorage.getItem('access_token')}`
+			}})
 			.then((res) => {
 				//history.push('/');
 				console.log(res);
 				localStorage.setItem('patient_id', res.data.id);
 				//console.log(res.data.id);
-				axiosInstance.post('http://127.0.0.1:8000/api/patients/tutors/', {
+				axiosInstance.post('api/patients/tutors/', {
 					first_name: formData.first_name,
                 	last_name: formData.last_name,
 					patient: localStorage.getItem('patient_id'),
-				}).then((response => {
+				}, {headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${localStorage.getItem('access_token')}`
+				}}).then((response => {
 					console.log(response)
 				}))
-				axiosInstance.post('http://127.0.0.1:8000/api/patients/certificates/', {
+				axiosInstance.post('api/patients/certificates/', {
 					image_binary: formData.image_binary,
 					patient: localStorage.getItem('patient_id'),
-				}).then((respo => {
+				},{headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${localStorage.getItem('access_token')}`
+				}}).then((respo => {
 					console.log(respo)
 				}))
-				axiosInstance.post('http://127.0.0.1:8000/api/patients/healthinsurances/', {
+				axiosInstance.post('api/patients/healthinsurances/', {
 					description: formData.description,
 					patient: localStorage.getItem('patient_id'),
 					healthinsurance: formData.healthinsurance,
-				})
+				},{headers: {
+					"Content-Type": "application/json",
+					"Authorization": `Bearer ${localStorage.getItem('access_token')}`
+				}})
 				.then((respons => {
 					console.log(respons)
 					history.push('/');
@@ -151,6 +163,7 @@ export default function CreatePatient() {
 
 	return (
 		<div className="CreatePatient">
+			<PatientHeader />
 			<video src={coverVideo} autoPlay loop muted className="videeo"/>
 			<CssBaseline />
 			<div className={classes.paper}>

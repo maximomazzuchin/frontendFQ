@@ -60,10 +60,9 @@ axiosInstance.interceptors.response.use(
 							localStorage.setItem('refresh_token', response.data.refresh_token);
 							localStorage.setItem('user_id', response.data.user.pk)
 							axiosInstance.defaults.headers['Authorization'] =
-								'JWT ' + response.data.access_token;
+								response.data.access_token;
 							originalRequest.headers['Authorization'] =
-								'JWT ' + response.data.access_token;
-
+								response.data.access_token;
 							return axiosInstance(originalRequest);
 						})
 						.catch((err) => {

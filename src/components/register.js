@@ -2,20 +2,17 @@ import React, { useState } from 'react';
 import axiosInstance from '../axios';
 import { useHistory } from 'react-router-dom';
 import './register.css';
+import Header from './header';
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withTheme } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import coverVideo from '../media/coverVideo.mp4';
-import { register } from '../serviceWorker';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,19 +56,10 @@ export default function SignUp() {
 			[e.target.name]: e.target.value.trim(),
 		});
 	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(formData);
-		if(document.getElementById('password1').value !== document.getElementById('password2').value){
-            alert("Las contraseñas no son iguales");
-            console.log(this.state)}
-		else if(document.getElementById('fm').value === "" || document.getElementById('lm').value === "" || document.getElementById('rmail').value === ""){
-			alert("Faltan datos");
-		}
-		else{
-			//document.getElementById('mf').style.display = 'none';
-			axiosInstance
+		axiosInstance
 			.post('dj-rest-auth/registration/', {
 				first_name: formData.first_name,
 				last_name: formData.last_name,
@@ -86,13 +74,37 @@ export default function SignUp() {
 			}).catch(err => {
 				console.log(err)
 			})
+		/* if(document.getElementById('password1').value !== document.getElementById('password2').value){
+            alert("Las contraseñas no son iguales");
+            console.log(this.state)}
+		else if(document.getElementById('fm').value === "" || document.getElementById('lm').value === "" || document.getElementById('rmail').value === ""){
+			alert("Faltan datos");
 		}
+		else {
+			//document.getElementById('mf').style.display = 'none';
+			axiosInstance
+			.post('dj-rest-auth/registration/', {
+				first_name: formData.first_name,
+				last_name: formData.last_name,
+				email: formData.email,
+				password1: formData.password1,
+				password2: formData.password2,
+			})
+			.then((res) => {
+				console.log(res);
+				console.log(res.data);
+				//history.push('/login');
+			}).catch(err => {
+				console.log(err)
+			})
+		} */
 	};
 
 	const classes = useStyles();
 
 	return (
 		<div className="SignUp">
+			<Header />
 			<video src={coverVideo} autoPlay loop muted className="vide"/>
 			<CssBaseline />
 			<div id="mf" className={classes.paper}>

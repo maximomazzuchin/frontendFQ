@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axiosInstance from '../axios';
+import Header from './header';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './login.css'
@@ -56,51 +57,33 @@ export default function SignIn() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(formData);
-
 		await axiosInstance
 			.post('dj-rest-auth/login/', {
 				email: formData.email,
 				password: formData.password,
-			})
-			.then((res) => {
-				//debugger;
+			}).then((res) => {
+				console.log(res)
 				localStorage.setItem('access_token', res.data.access_token);
 				localStorage.setItem('refresh_token', res.data.refresh_token);
 				localStorage.setItem('user_id', res.data.user.pk);
-				axiosInstance.defaults.headers['Authorization'] =
-					'JWT ' + localStorage.getItem('access_token');
-				//hacer .get aca
-				//then y catch
-				//en el then evaluar si el valor que viene en patient id es null o hay un id
-				//si hay id mandar al home, si no hay, mandar al create patient
-				/*axios.get('http://127.0.0.1:8000/api/users/testfull/', {
-					headers: {
-						Authorization: localStorage.getItem('access_token')
-							? 'JWT ' + localStorage.getItem('access_token')
-							: null,
-						'Content-Type': 'application/json',
-						accept: 'application/json',
-					} 
-				}).then(res => {
-					console.log(res.data)*/
-					//if (res.data.patient ==) null){
-					//	history.push('/createpatient');
-					//}else
-					//	history.push('/');
-				/*}).catch(err => {
-					console.log(err)
-				});*/
-				history.push('/createpatient');
-				//history.push('/');
-				//console.log(res);
-				//console.log(res.data);
-			});
-	};
+				history.push('/createpatient')
+			})/* .then(
+				axiosInstance.get('api/users/full/' + localStorage.getItem('user_id'))
+					.then(resp => {
+						console.log(resp)
+					}).catch(err => {
+						console.log(err)
+					})
+			).catch(err =>{
+				console.log(err)
+			} ) */
+};
 
 	const classes = useStyles();
 
 	return (
 		<div className="SignIn">
+			<Header />
 			<video src={coverVideo} autoPlay loop muted className="videoo"/>
 			<CssBaseline />
 			<div className={classes.paper}>
@@ -155,8 +138,8 @@ export default function SignIn() {
 							</Link>
 						</Grid>
 						<Grid item>
-							<Link href="register" variant="body2">
-								{"Don't have an account? Sign Up"}
+							<Link href="/register" variant="body2">
+								Don't have an account? Sign Up
 							</Link>
 						</Grid>
 					</Grid>

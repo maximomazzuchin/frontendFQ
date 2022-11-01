@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axiosInstance from '../axios';
+import ForgotPasswordHeader from './forgotpasswordheader';
 import { useHistory } from 'react-router-dom';
 import './forgotpassword.css'
 //MaterialUI
@@ -7,13 +8,10 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import coverVideo from '../media/coverVideo.mp4';
 
 const useStyles = makeStyles((theme) => ({
@@ -62,8 +60,6 @@ export default function ForgotPassword() {
 			.then((res) => {
 				localStorage.setItem('access_token', res.data.access);
 				localStorage.setItem('refresh_token', res.data.refresh);
-				axiosInstance.defaults.headers['Authorization'] =
-					'JWT ' + localStorage.getItem('access_token');
 				//history.push('/');
 				//console.log(res);
 				//console.log(res.data);
@@ -74,6 +70,7 @@ export default function ForgotPassword() {
 
 	return (
 		<div className="ForgotPassword">
+			<ForgotPasswordHeader />
 			<video src={coverVideo} autoPlay loop muted className="viddeo"/>
 			<CssBaseline />
 			<div className={classes.paper}>

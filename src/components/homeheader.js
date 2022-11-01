@@ -1,5 +1,4 @@
 import React from 'react';
-import './header.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-function Header() {
+function HomeHeader() {
 	const classes = useStyles();
 	return (
 		<React.Fragment>
@@ -53,26 +52,15 @@ function Header() {
 							Home
 						</Link>
 					</Typography>
-					<nav>
-						<Link
-							color="textPrimary"
-							href="#"
-							className={classes.link}
-							component={NavLink}
-							to="/register"
-						>
-							Register
-						</Link>
-					</nav>
-					<Button
+                    <Button
 						href="#"
 						color="primary"
 						variant="outlined"
 						className={classes.link}
 						component={NavLink}
-						to="/login"
+						to="/profile"
 					>
-						Login
+						Ver Perfil
 					</Button>
 					<Button
 						href="#"
@@ -90,4 +78,4 @@ function Header() {
 	);
 }
 
-export default Header;
+export default HomeHeader;
