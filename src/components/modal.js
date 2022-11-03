@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./modal.css";
 
+
 export default function Modal() {
   const [modal, setModal] = useState(false);
 
@@ -24,7 +25,7 @@ export default function Modal() {
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <h2>Revisa tu Correo</h2>
+            <h2 className="modal-title">Revisa tu Correo</h2>
             <button className="close-modal" onClick={toggleModal}>
               Listo
             </button>

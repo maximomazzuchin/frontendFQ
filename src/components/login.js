@@ -67,16 +67,7 @@ export default function SignIn() {
 				localStorage.setItem('refresh_token', res.data.refresh_token);
 				localStorage.setItem('user_id', res.data.user.pk);
 				history.push('/createpatient')
-			})/* .then(
-				axiosInstance.get('api/users/full/' + localStorage.getItem('user_id'))
-					.then(resp => {
-						console.log(resp)
-					}).catch(err => {
-						console.log(err)
-					})
-			).catch(err =>{
-				console.log(err)
-			} ) */
+			})
 };
 
 	const classes = useStyles();

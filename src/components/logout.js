@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axiosInstance from '../axios';
 import { useHistory } from 'react-router-dom';
 
 export default function LogOut() {
@@ -13,6 +12,7 @@ export default function LogOut() {
 		localStorage.removeItem('patient_id');
 		localStorage.removeItem('user_id');
 		localStorage.removeItem('refresh_token');
+		localStorage.removeItem('selected_healthinsurance_id');
 		//axiosInstance.defaults.headers['Authorization'] = null;
 		history.push('/login');
 	});

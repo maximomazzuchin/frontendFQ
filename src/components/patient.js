@@ -58,12 +58,7 @@ export default function CreatePatient() {
     const [selectedHealthInsurance, setSelectedHealthInsurance] = useState([]);
 
     useEffect(() => {
-        axiosInstance.get('api/healthinsurances/', {
-			headers: {
-				"Content-Type": "application/json",
-				"Authorization": `Bearer ${localStorage.getItem('access_token')}`
-			},
-            })
+        axiosInstance.get('api/healthinsurances/')
             .then(res => {
                 console.log(res.data)
                 setHealthinsurances(res.data)
@@ -76,6 +71,16 @@ export default function CreatePatient() {
                 console.log(err)
             })
     }, [])
+
+	useEffect(() => {
+		axiosInstance.get('api/users/full/'+localStorage.getItem('user_id')+'/')
+			.then(res => {
+				const redirect = res.data[0].patient
+				if (redirect != null){
+					history.push('/')
+				}
+			})
+	}, [])
 
     const getData = (baseImage) => {
         //console.log(baseImage)
@@ -114,10 +119,7 @@ export default function CreatePatient() {
                 province: formData.province,
                 city: formData.city,
 				user: localStorage.getItem('user_id'),
-			}, {headers: {
-				"Content-Type": "application/json",
-				"Authorization": `Bearer ${localStorage.getItem('access_token')}`
-			}})
+			},)
 			.then((res) => {
 				//history.push('/');
 				console.log(res);
@@ -127,29 +129,20 @@ export default function CreatePatient() {
 					first_name: formData.first_name,
                 	last_name: formData.last_name,
 					patient: localStorage.getItem('patient_id'),
-				}, {headers: {
-					"Content-Type": "application/json",
-					"Authorization": `Bearer ${localStorage.getItem('access_token')}`
-				}}).then((response => {
+				},).then((response => {
 					console.log(response)
 				}))
 				axiosInstance.post('api/patients/certificates/', {
 					image_binary: formData.image_binary,
 					patient: localStorage.getItem('patient_id'),
-				},{headers: {
-					"Content-Type": "application/json",
-					"Authorization": `Bearer ${localStorage.getItem('access_token')}`
-				}}).then((respo => {
+				},).then((respo => {
 					console.log(respo)
 				}))
 				axiosInstance.post('api/patients/healthinsurances/', {
 					description: formData.description,
 					patient: localStorage.getItem('patient_id'),
 					healthinsurance: formData.healthinsurance,
-				},{headers: {
-					"Content-Type": "application/json",
-					"Authorization": `Bearer ${localStorage.getItem('access_token')}`
-				}})
+				},)
 				.then((respons => {
 					console.log(respons)
 					history.push('/');
