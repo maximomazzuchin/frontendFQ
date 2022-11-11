@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800;900&display=swap');
+
+
+.App{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vid{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.covertitle{
+  font-family: 'Montserrat', sans-serif;
+  align-self: center;
+  color: black;
+  font-size: 80px;
+  font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+  .covertitle{
+      font-size: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .covertitle{
+      font-size: 30px;
+  }
+}
