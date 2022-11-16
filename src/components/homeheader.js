@@ -1,4 +1,5 @@
 import React from 'react';
+import './homeheader.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -47,6 +48,7 @@ function HomeHeader() {
 							component={NavLink}
 							to="/"
 							underline="none"
+							className="nav-home"
 							color="textPrimary"
 						>
 							Home
@@ -56,16 +58,18 @@ function HomeHeader() {
 						href="#"
 						color="primary"
 						variant="outlined"
+						id="vprofile"
 						className={classes.link}
 						component={NavLink}
 						to="/profile"
 					>
-						Ver Perfil
+						Perfil
 					</Button>
 					<Button
 						href="#"
 						color="primary"
 						variant="outlined"
+						id="vlogout"
 						className={classes.link}
 						component={NavLink}
 						to="/logout"

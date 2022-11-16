@@ -1,0 +1,15 @@
+@media (max-width: 480px) {
+    .nav-home{
+        font-size: 15px;
+    }
+
+    #vprofile{
+        width: 55px;
+        font-size: 11px;
+    }
+
+    #vlogout{
+        width: 55px;
+        font-size: 11px;
+    }
+}

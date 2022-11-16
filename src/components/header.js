@@ -20,10 +20,6 @@ const useStyles = makeStyles((theme) => ({
 	toolbarTitle: {
 		flexGrow: 1,
 	},
-	markeet: {
-		spacing: [0, 2, 3, 5, 8],
-
-	},
 }));
 
 function Header() {
@@ -47,6 +43,7 @@ function Header() {
 						<Link
 							component={NavLink}
 							to="/"
+							className="nav-homee"
 							underline="none"
 							color="textPrimary"
 						>
@@ -57,6 +54,7 @@ function Header() {
 						<Link
 							color="textPrimary"
 							href="#"
+							id="hregister"
 							className={classes.link}
 							component={NavLink}
 							to="/register"
@@ -69,6 +67,7 @@ function Header() {
 						color="primary"
 						variant="outlined"
 						className={classes.link}
+						id="hlogin"
 						component={NavLink}
 						to="/login"
 					>
@@ -79,6 +78,7 @@ function Header() {
 						color="primary"
 						variant="outlined"
 						className={classes.link}
+						id="hlogout"
 						component={NavLink}
 						to="/logout"
 					>

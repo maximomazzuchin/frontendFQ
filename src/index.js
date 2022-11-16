@@ -5,13 +5,13 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import App from './App';
-import Footer from './components/footer';
 import register from './components/register';
 import login from './components/login';
 import logout from './components/logout';
 import CreatePatient from './components/patient';
 import ForgotPassword from './components/forgotpassword';
 import Profile from './components/profile';
+import EditUser from './components/edituser';
 
 const routing = (
 	<Router>
@@ -24,6 +24,7 @@ const routing = (
 				<Route exact path="/forgotpassword" component={ForgotPassword} />
 				<Route exact path="/createpatient" component={CreatePatient} />
 				<Route exact path="/profile" component={Profile} />
+				<Route exact path="/edituser" component={EditUser} />
 			</Switch>
 		</React.StrictMode>
 	</Router>

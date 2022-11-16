@@ -1,4 +1,5 @@
 import React from 'react';
+import './patientheader.css';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -47,6 +48,7 @@ function PatientHeader() {
 							to="/"
 							underline="none"
 							color="textPrimary"
+							className="naav-home"
 						>
 							Home
 						</Link>
@@ -56,6 +58,7 @@ function PatientHeader() {
 						color="primary"
 						variant="outlined"
 						className={classes.link}
+						id="vvlogout"
 						component={NavLink}
 						to="/logout"
 					>

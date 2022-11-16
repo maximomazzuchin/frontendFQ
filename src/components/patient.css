@@ -12,4 +12,17 @@
     position: absolute;
     z-index: -1;
     object-fit: cover;
-  }
+}
+
+@media (max-width: 480px) {
+    .griid-item{
+        height: 35px;
+        margin-bottom: 1px !important;
+    }
+    #birthda{
+        margin-bottom: 11px !important;
+    }
+    #oss{
+        margin-bottom: 11px !important;
+    }
+}

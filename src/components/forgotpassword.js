@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import axiosInstance from '../axios';
 import { useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './forgotpassword.css'
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import coverVideo from '../media/coverVideo.mp4';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -54,18 +53,38 @@ export default function ForgotPassword() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(formData);
-
-		axiosInstance
-			.post('http://127.0.0.1:8000/dj-rest-auth/password/reset/', {
+		axios.post('http://127.0.0.1:8000/dj-rest-auth/password/reset/', {
 				email: formData.email,
-			})
-			.then((res) => {
-				localStorage.setItem('access_token', res.data.access);
-				localStorage.setItem('refresh_token', res.data.refresh);
+			}).then((res) => {
+				console.log(res);
+				console.log(res.data);
+				toast.success('Verifica tu Correo', {
+					position: "top-center",
+					autoClose: 10000,
+					hideProgressBar: false,
+					closeOnClick: false,
+					pauseOnHover: false,
+					draggable: false,
+					progress: undefined,
+					theme: "dark",
+				});
+				//alert("Verifica tu correo para confirmar la contraseña")
 				//history.push('/');
 				//console.log(res);
 				//console.log(res.data);
-			});
+			}).catch(err => {
+				toast.error('Paso algo, porfavor intente nuevamente', {
+					position: "top-center",
+					autoClose: 10000,
+					hideProgressBar: false,
+					closeOnClick: false,
+					pauseOnHover: false,
+					draggable: false,
+					progress: undefined,
+					theme: "dark",
+				});					
+				console.log(err)
+			})
 	};
 
 	const classes = useStyles();

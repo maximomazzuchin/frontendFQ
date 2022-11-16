@@ -1,0 +1,9 @@
+@media (max-width: 480px) {
+    .naav-home{
+        font-size: 15px;
+    }
+    #vvlogout{
+        width: 55px;
+        font-size: 11px;
+    }
+}

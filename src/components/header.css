@@ -3,3 +3,23 @@
 .link{
     font-family: 'Montserrat', sans-serif;
 }
+
+@media (max-width: 480px) {
+    .nav-homee{
+        font-size: 12px;
+    }
+
+    #hregister{
+        font-size: 12px;
+    }
+
+    #hlogin{
+        width: 50px;
+        font-size: 11px;
+    }
+
+    #hlogout{
+        width: 50px;
+        font-size: 11px;
+    }
+}

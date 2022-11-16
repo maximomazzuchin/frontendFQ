@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axiosInstance from '../axios';
 import Header from './header';
+import { Buffer } from 'buffer';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './login.css'
@@ -20,7 +21,7 @@ import coverVideo from '../media/coverVideo.mp4';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		marginTop: theme.spacing(8),
+		marginTop: theme.spacing(4),
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(1),
 	},
 	submit: {
-		margin: theme.spacing(3, 0, 2),
+		margin: theme.spacing(3, 0, 1),
 	},
 }));
 
@@ -57,8 +58,8 @@ export default function SignIn() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(formData);
-		await axiosInstance
-			.post('dj-rest-auth/login/', {
+		await 
+			axios.post('http://127.0.0.1:8000/dj-rest-auth/login/', {
 				email: formData.email,
 				password: formData.password,
 			}).then((res) => {
@@ -67,6 +68,8 @@ export default function SignIn() {
 				localStorage.setItem('refresh_token', res.data.refresh_token);
 				localStorage.setItem('user_id', res.data.user.pk);
 				history.push('/createpatient')
+			}).catch(err => {
+				console.log(err)
 			})
 };
 
@@ -92,7 +95,7 @@ export default function SignIn() {
 						label="Email Address"
 						type="email"
 						name="email"
-						autoComplete="email"
+						className="grid-iteem"
 						autoFocus
 						onChange={handleChange}
 					/>
@@ -102,15 +105,11 @@ export default function SignIn() {
 						required
 						fullWidth
 						name="password"
+						className="grid-iteem"
 						label="Password"
 						type="password"
 						id="password"
-						autoComplete="current-password"
 						onChange={handleChange}
-					/>
-					<FormControlLabel
-						control={<Checkbox value="remember" color="primary" />}
-						label="Remember me"
 					/>
 					<Button
 						type="submit"

@@ -36,7 +36,6 @@ function ImageCompressor(props){
                 uploadImage(e)
                 }}
             />
-            <img src={baseImage}></img>
         </div>
     )
 

@@ -2,39 +2,31 @@ import React, { useState, useEffect } from 'react';
 import axiosInstance from '../axios';
 import { useHistory } from 'react-router-dom';
 import PatientHeader from './patientheader';
+import { Buffer } from 'buffer';
 import './patient.css'
 //MaterialUI
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import ImageCompressor from './ImageCompressor';
 import coverVideo from '../media/coverVideo.mp4';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		marginTop: theme.spacing(8),
+		marginTop: theme.spacing(6),
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
 	},
-	avatar: {
-		margin: theme.spacing(1),
-		backgroundColor: theme.palette.secondary.main,
-	},
 	form: {
 		width: '50%', // Fix IE 11 issue.
-		marginTop: theme.spacing(3),
+		marginTop: theme.spacing(1),
 	},
 	submit: {
-		margin: theme.spacing(3, 0, 2),
+		margin: theme.spacing(2, 0, 1),
 	},
 }));
 
@@ -45,13 +37,27 @@ export default function CreatePatient() {
         birth_date: '',
         province: '',
         city: '',
-		//patient: localStorage.getItem('patient_id'),
-        //selectedInsurance: '',
-        //description: '',
-        //first_name_tutor: '',
-        //last_name_tutor: '',
-        //udimage: '',
 	});
+
+	useEffect(() => {
+		axiosInstance.get('api/users/full/'+localStorage.getItem('user_id')+'/')
+			.then(res => {
+				const redirect = res.data[0].patient
+				if (redirect != null){
+					history.push('/')
+				}
+			})
+	}, [])
+
+	/* useEffect(() => {
+		axiosInstance.get('api/users/full/'+localStorage.getItem('user_id')+'/')
+			.then(res => {
+				const redirect = res.data[0].patient
+				if (redirect != null){
+					history.push('/')
+				}
+			})
+	}, []) */
 
 	const [formData, updateFormData] = useState(initialFormData);
     const [healthInsurances, setHealthinsurances] = useState([]);
@@ -71,16 +77,6 @@ export default function CreatePatient() {
                 console.log(err)
             })
     }, [])
-
-	useEffect(() => {
-		axiosInstance.get('api/users/full/'+localStorage.getItem('user_id')+'/')
-			.then(res => {
-				const redirect = res.data[0].patient
-				if (redirect != null){
-					history.push('/')
-				}
-			})
-	}, [])
 
     const getData = (baseImage) => {
         //console.log(baseImage)
@@ -121,7 +117,6 @@ export default function CreatePatient() {
 				user: localStorage.getItem('user_id'),
 			},)
 			.then((res) => {
-				//history.push('/');
 				console.log(res);
 				localStorage.setItem('patient_id', res.data.id);
 				//console.log(res.data.id);
@@ -160,7 +155,6 @@ export default function CreatePatient() {
 			<video src={coverVideo} autoPlay loop muted className="videeo"/>
 			<CssBaseline />
 			<div className={classes.paper}>
-				<Avatar className={classes.avatar}></Avatar>
 				<Typography component="h1" variant="h5">
 					Paciente
 				</Typography>
@@ -175,6 +169,7 @@ export default function CreatePatient() {
 								label="First Name Tutor"
                                 type="text"
 								name="first_name"
+								className="griid-item"
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -187,6 +182,7 @@ export default function CreatePatient() {
 								label="Last Name Tutor"
                                 type="text"
 								name="last_name"
+								className="griid-item"
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -199,6 +195,7 @@ export default function CreatePatient() {
 								label="Document Number"
                                 type="number"
 								name="document_number"
+								className="griid-item"
 								autoComplete="document_number"
 								onChange={handleChange}
 							/>
@@ -212,6 +209,7 @@ export default function CreatePatient() {
 								label="Provincia"
                                 type="text"
 								name="province"
+								className="griid-item"
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -224,10 +222,11 @@ export default function CreatePatient() {
 								label="Ciudad"
                                 type="text"
 								name="city"
+								className="griid-item"
 								onChange={handleChange}
 							/>
 						</Grid>
-                        <Grid item xs={12}>
+                        <Grid id="birthda" item xs={12}>
 							<TextField
 								variant="outlined"
 								required
@@ -235,6 +234,7 @@ export default function CreatePatient() {
 								id="birth_date"
                                 type="date"
 								name="birth_date"
+								className="griid-item"
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -245,7 +245,18 @@ export default function CreatePatient() {
                             ))
                         }
                         </select>
-                        {selectedHealthInsurance && <input type="text" name="description" placeholder="Plan Obra social" onChange={handleHealthInsuranceChange}></input>
+                        {selectedHealthInsurance && <Grid id="oss" item xs={12}>
+							<TextField
+								variant="outlined"
+								required
+								fullWidth
+								placeholder="Plan Obra social"
+                                type="text"
+								name="description"
+								className="griid-item"
+								onChange={handleHealthInsuranceChange}
+							/>
+						</Grid>
                         }
                         <ImageCompressor onImageSelected={getData}/>
                         <input type="hidden" name="image_binary" value={formData.image_binary}></input>
@@ -260,13 +271,6 @@ export default function CreatePatient() {
 					>
 						Sign Up
 					</Button>
-					<Grid container justify="flex-end">
-						<Grid item>
-							<Link href="/login" variant="body2">
-								Already have an account? Sign in
-							</Link>
-						</Grid>
-					</Grid>
 				</form>
 			</div>
 		</div>

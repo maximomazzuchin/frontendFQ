@@ -12,4 +12,12 @@
     position: absolute;
     z-index: -1;
     object-fit: cover;
-  }
+}
+
+  
+@media (max-width: 480px) {
+    .grid-iteem{
+        height: 35px;
+        margin-bottom: 1px !important;
+    }
+}
