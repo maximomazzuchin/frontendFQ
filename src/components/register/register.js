@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router-dom';
 import './register.css';
-import Header from './header';
+import Header from '../headers/header';
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -13,7 +13,7 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withTheme } from '@material-ui/core/styles';
-import coverVideo from '../media/coverVideo.mp4';
+import coverVideo from '../../media/coverVideo.mp4';
 import axios from 'axios';
 
 
@@ -61,20 +61,6 @@ export default function SignUp() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(formData);
-		/* axios.post('http://127.0.0.1:8000/dj-rest-auth/registration/', {
-				first_name: formData.first_name,
-				last_name: formData.last_name,
-				email: formData.email,
-				password1: formData.password1,
-				password2: formData.password2,
-			})
-			.then((res) => {
-				console.log(res);
-				console.log(res.data);
-				history.push('/login');
-			}).catch(err => {
-				console.log(err)
-			}) */
 		if(document.getElementById('password1').value !== document.getElementById('password2').value){
             alert("Las contraseñas no son iguales");
             console.log(this.state)}
@@ -100,7 +86,7 @@ export default function SignUp() {
 					pauseOnHover: false,
 					draggable: false,
 					progress: undefined,
-					theme: "dark",
+					theme: "light",
 				});
 				//alert("Verifica tu correo para confirmar la cuenta")
 				//history.push('/login');

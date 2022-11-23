@@ -12,7 +12,7 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import coverVideo from '../media/coverVideo.mp4';
+import coverVideo from '../../media/coverVideo.mp4';
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -66,7 +66,7 @@ export default function ForgotPassword() {
 					pauseOnHover: false,
 					draggable: false,
 					progress: undefined,
-					theme: "dark",
+					theme: "light",
 				});
 				//alert("Verifica tu correo para confirmar la contraseña")
 				//history.push('/');

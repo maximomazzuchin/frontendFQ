@@ -1,17 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
-import * as serviceWorker from './serviceWorker';
 import './index.css';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import App from './App';
-import register from './components/register';
-import login from './components/login';
+import register from './components/register/register';
+import login from './components/login/login';
 import logout from './components/logout';
-import CreatePatient from './components/patient';
-import ForgotPassword from './components/forgotpassword';
-import Profile from './components/profile';
-import EditUser from './components/edituser';
+import CreatePatient from './components/patient/patient';
+import ForgotPassword from './components/forgotpassword/forgotpassword';
+import EditUser from './components/edituser/edituser';
 
 const routing = (
 	<Router>
@@ -23,7 +20,6 @@ const routing = (
 				<Route exact path="/logout" component={logout} />
 				<Route exact path="/forgotpassword" component={ForgotPassword} />
 				<Route exact path="/createpatient" component={CreatePatient} />
-				<Route exact path="/profile" component={Profile} />
 				<Route exact path="/edituser" component={EditUser} />
 			</Switch>
 		</React.StrictMode>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import coverVideo from './media/coverVideo.mp4';
-import HomeHeader from './components/homeheader';
+import HomeHeader from './components/headers/homeheader';
 
 function App() {
 	const user = localStorage.getItem('user_id')

@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import axiosInstance from '../axios';
+import axiosInstance from '../../axios';
 import { useHistory } from 'react-router-dom';
-import PatientHeader from './patientheader';
+import PatientHeader from '../headers/patientheader';
 import './edituser.css'
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import ImageCompressor from './ImageCompressor';
-import coverVideo from '../media/coverVideo.mp4';
+import ImageCompressor from '../ImageCompressor';
+import coverVideo from '../../media/coverVideo.mp4';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -86,7 +83,12 @@ export default function EditUser() {
     const [selectedHealthInsurance, setSelectedHealthInsurance] = useState([]);
 
 	useEffect(() => {
-		axiosInstance.get('api/users/full/'+localStorage.getItem('user_id')+'/')
+		axios.get('http://127.0.0.1:8000/api/users/full/'+localStorage.getItem('user_id')+'/', {
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${localStorage.getItem('access_token')}`
+			}
+		})
 			.then(res => {
 			console.log(res.data[0])
 			const dataMapped = res.data.map(x => {
@@ -98,21 +100,12 @@ export default function EditUser() {
 			}).catch(err => {
 			console.log(err)
 			})
-			axiosInstance.get('api/healthinsurances/'+localStorage.getItem('selected_healthinsurance_id')+'/')
-				.then(res => {
-					console.log(res.data)
-					/* const hiMapped = res.data.map(x => {
-						let hii = new axiHi(x.name)
-						return hii;
-					});
-				setHi(hiMapped); */
-				}).catch(err =>{
-					console.log(err)
-				})
-	}, [])
-
-    useEffect(() => {
-        axiosInstance.get('api/healthinsurances/')
+		axios.get('http://127.0.0.1:8000/api/healthinsurances/', {
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${localStorage.getItem('access_token')}`
+			}
+		})
             .then(res => {
                 console.log(res.data)
                 setHealthinsurances(res.data)
@@ -124,7 +117,8 @@ export default function EditUser() {
             }).catch(err => {
                 console.log(err)
             })
-    }, [])
+		
+	}, [])
 
     const getData = (baseImage) => {
         //console.log(baseImage)
@@ -167,24 +161,20 @@ export default function EditUser() {
 			.then((res) => {
 				//history.push('/');
 				console.log(res);
-				localStorage.setItem('patient_id', res.data.id);
 				//console.log(res.data.id);
 				axiosInstance.put('api/patients/tutors/', {
 					first_name: formData.first_name,
                 	last_name: formData.last_name,
-					patient: localStorage.getItem('patient_id'),
 				},).then((response => {
 					console.log(response)
 				}))
 				axiosInstance.put('api/patients/certificates/', {
 					image_binary: formData.image_binary,
-					patient: localStorage.getItem('patient_id'),
 				},).then((respo => {
 					console.log(respo)
 				}))
 				axiosInstance.put('api/patients/healthinsurances/', {
 					description: formData.description,
-					patient: localStorage.getItem('patient_id'),
 					healthinsurance: formData.healthinsurance,
 				},)
 				.then((respons => {
@@ -320,4 +310,3 @@ export default function EditUser() {
 
   );
 }
-

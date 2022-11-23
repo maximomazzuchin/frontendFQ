@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axiosInstance from '../axios';
+import axiosInstance from '../../axios';
 import { useHistory } from 'react-router-dom';
-import PatientHeader from './patientheader';
-import { Buffer } from 'buffer';
+import PatientHeader from '../headers/patientheader';
 import './patient.css'
 //MaterialUI
 import Button from '@material-ui/core/Button';
@@ -11,8 +10,9 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import ImageCompressor from './ImageCompressor';
-import coverVideo from '../media/coverVideo.mp4';
+import ImageCompressor from '../ImageCompressor';
+import coverVideo from '../../media/coverVideo.mp4';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -40,24 +40,39 @@ export default function CreatePatient() {
 	});
 
 	useEffect(() => {
-		axiosInstance.get('api/users/full/'+localStorage.getItem('user_id')+'/')
+		axios.get('http://127.0.0.1:8000/api/users/full/'+localStorage.getItem('user_id')+'/', {
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${localStorage.getItem('access_token')}`
+			}
+		})
 			.then(res => {
-				const redirect = res.data[0].patient
-				if (redirect != null){
+				const patient_data = res.data[0].patient
+				if (patient_data != null){
 					history.push('/')
 				}
+			}).catch(err => {
+				console.log(err)
 			})
-	}, [])
 
-	/* useEffect(() => {
-		axiosInstance.get('api/users/full/'+localStorage.getItem('user_id')+'/')
-			.then(res => {
-				const redirect = res.data[0].patient
-				if (redirect != null){
-					history.push('/')
-				}
-			})
-	}, []) */
+		axios.get('http://127.0.0.1:8000/api/healthinsurances/', {
+			headers: {
+				"Content-Type": "application/json",
+				"Authorization": `Bearer ${localStorage.getItem('access_token')}`
+			}
+		})
+            .then(res => {
+                console.log(res.data)
+                setHealthinsurances(res.data)
+                /*this.context.setUser(res.data)
+                this.setState({
+                    ...this.state,
+                    insuranceList:res.data
+                })*/
+            }).catch(err => {
+                console.log(err)
+            })
+	}, [])
 
 	const [formData, updateFormData] = useState(initialFormData);
     const [healthInsurances, setHealthinsurances] = useState([]);
@@ -107,7 +122,6 @@ export default function CreatePatient() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(formData);
-
 		axiosInstance
 			.post('api/patients/patients/', {
                 document_number: formData.document_number,
@@ -117,9 +131,9 @@ export default function CreatePatient() {
 				user: localStorage.getItem('user_id'),
 			},)
 			.then((res) => {
-				console.log(res);
+				console.log(res.data);
 				localStorage.setItem('patient_id', res.data.id);
-				//console.log(res.data.id);
+				console.log(localStorage.getItem('patient_id'))
 				axiosInstance.post('api/patients/tutors/', {
 					first_name: formData.first_name,
                 	last_name: formData.last_name,
@@ -258,6 +272,7 @@ export default function CreatePatient() {
 							/>
 						</Grid>
                         }
+						<h4>Certificado de discapacidad</h4>
                         <ImageCompressor onImageSelected={getData}/>
                         <input type="hidden" name="image_binary" value={formData.image_binary}></input>
 					</Grid>

@@ -61,7 +61,7 @@ function HomeHeader() {
 						id="vprofile"
 						className={classes.link}
 						component={NavLink}
-						to="/profile"
+						to="/edituser"
 					>
 						Perfil
 					</Button>
