@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800;900&display=swap');
 
+.navbar-container {
+    box-shadow: 0 3px 7px rgba(0, 0, 0, .25) !important;
+}
+
 .link{
     font-family: 'Montserrat', sans-serif;
 }

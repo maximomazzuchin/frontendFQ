@@ -31,7 +31,7 @@ function Header() {
 				position="absolute"
 				color="transparent"
 				elevation={0}
-				className={classes.appBar}
+				className={`navbar-container ${classes.appBar}`}
 			>
 				<Toolbar className={classes.toolbar}>
 					<Typography
@@ -51,27 +51,17 @@ function Header() {
 						</Link>
 					</Typography>
 					<nav>
-						<Link
-							color="textPrimary"
-							href="#"
-							id="hregister"
-							className={classes.link}
-							component={NavLink}
-							to="/register"
-						>
-							Register
-						</Link>
 					</nav>
 					<Button
 						href="#"
 						color="primary"
 						variant="outlined"
 						className={classes.link}
-						id="hlogin"
+						id="hmarket"
 						component={NavLink}
-						to="/login"
+						to="/market"
 					>
-						Login
+						Market
 					</Button>
 					<Button
 						href="#"

@@ -9,6 +9,8 @@ import logout from './components/logout';
 import CreatePatient from './components/patient/patient';
 import ForgotPassword from './components/forgotpassword/forgotpassword';
 import EditUser from './components/edituser/edituser';
+import ShoppingCart from './components/Market/ShoppingCart';
+
 
 const routing = (
 	<Router>
@@ -21,6 +23,7 @@ const routing = (
 				<Route exact path="/forgotpassword" component={ForgotPassword} />
 				<Route exact path="/createpatient" component={CreatePatient} />
 				<Route exact path="/edituser" component={EditUser} />
+				<Route exact path="/market" component={ShoppingCart}/>
 			</Switch>
 		</React.StrictMode>
 	</Router>

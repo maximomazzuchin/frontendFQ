@@ -1,0 +1,7 @@
+.shopping-page {
+    background-image: url(../../media/ShoppingBackground.png);
+    background-repeat:repeat-x;
+    background-attachment:fixed;
+    background-position: left top;
+    padding-top: 100px;
+}
