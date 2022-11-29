@@ -32,7 +32,6 @@ const ShoppingCart = () => {
     }, [])    
     
     const shoppingInitialState = {  
-      //INITIALIZE_STORE
       products: JSON.parse(localStorage.getItem('products')),
       cart:[] 
     } 
@@ -133,16 +132,6 @@ const ShoppingCart = () => {
         default:  
             return state;
     }     
-    
-    // const submitHandler = (e) => {
-    //   e.preventDefault();
-    //   axiosInstance.post(url,{
-    //     patient: localStorage.getItem('patient_id')
-
-    //   })
-        
-    // }
-
 }    
 
 console.log(cart)
@@ -169,14 +158,8 @@ function postingData (){
     patient: localStorage.getItem('patient_id')
   }).then(res => {
     console.log(res.data.id)
-    // axiosInstance.post("http://127.0.0.1:8000/api/sales/" + res.data.id + "/detailswa", {
-      //    carritomapeado
-      //  })
     })
   }
-  
-  
-
 
   // ---------------------------------------- Return ----------------------------------------
 
@@ -206,7 +189,9 @@ function postingData (){
       </article>
       
       <Button as="a" size="lg" variant="secondary" href={urlwsp} target="_blank" onClick={postingData}>Realizar Pedido</Button>
-
+      <br></br>
+      <br></br>
+      <br></br>
     </Container>
   )
 }

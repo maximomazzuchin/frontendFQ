@@ -16,7 +16,7 @@ const CartItem = ({data, delFromCart}) => {
           <h4>{name}</h4>
           <h5>${price} x {quantity} Total: $ {price * quantity}</h5>
           <div >
-          <Button variant="secondary" className='caca' onClick={()=> delFromCart(id)}>Eliminar uno</Button>
+          <Button variant="secondary" className='margin' onClick={()=> delFromCart(id)}>Eliminar uno</Button>
           <Button variant="danger" onClick={()=> delFromCart(id, true)}>Eliminar Todo</Button>
           </div> 
       </div>
